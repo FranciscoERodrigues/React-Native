@@ -1,0 +1,98 @@
+4. Tela de Configurações com Switches
+
+Descrição:
+
+Crie uma tela de configurações com diferentes opções (ex.: ativar notificações, tema escuro) usando Switch.
+Salve as preferências no estado da aplicação e mostre os resultados em tempo real.
+
+Habilidades:
+
+Uso de Switch para controle de opções.
+Gerenciamento de estado global com useState.
+
+Estrutura de Navegação Sugerida
+
+Para os exercícios com navegação:
+
+1) Instale o React Navigation e as dependências:
+
+npm install @react-navigation/native react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated react-native-vector-icons react-navigation-stack
+
+2) Configure o Stack Navigator:
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Tela1" component={Tela1} />
+        <Stack.Screen name="Tela2" component={Tela2} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+4. Tela de Configurações com Switches
+Descrição: Uma tela com switches que permitem ao usuário alterar preferências, como ativar notificações ou tema escuro.
+
+import React, { useState } from 'react';
+import { View, Text, Switch, StyleSheet } from 'react-native';
+
+export default function App() {
+  const [isNotificationsEnabled, setNotificationsEnabled] = useState(false);
+  const [isDarkTheme, setDarkTheme] = useState(false);
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.setting}>
+        <Text style={styles.settingText}>Notificações</Text>
+        <Switch
+          value={isNotificationsEnabled}
+          onValueChange={setNotificationsEnabled}
+        />
+      </View>
+      <View style={styles.setting}>
+        <Text style={styles.settingText}>Tema Escuro</Text>
+        <Switch
+          value={isDarkTheme}
+          onValueChange={setDarkTheme}
+        />
+      </View>
+      <Text style={styles.status}>
+        Notificações: {isNotificationsEnabled ? 'Ativadas' : 'Desativadas'}
+      </Text>
+      <Text style={styles.status}>
+        Tema: {isDarkTheme ? 'Escuro' : 'Claro'}
+      </Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+  },
+  setting: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  settingText: {
+    fontSize: 18,
+  },
+  status: {
+    fontSize: 16,
+    marginTop: 20,
+  },
+});
+
+Explicação:
+
+Switches: Controlam preferências como notificações e tema.
+Estados: Usados para armazenar e exibir o estado atual das preferências.

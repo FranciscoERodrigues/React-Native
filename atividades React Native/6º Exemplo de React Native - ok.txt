@@ -1,0 +1,71 @@
+5. Painel de Citação
+
+Descrição: Construa uma interface com uma citação inspiradora e a foto do autor.
+
+Instruções:
+
+Use um Text para a citação principal, aplicando uma fonte itálica.
+Coloque a foto do autor ao lado da citação usando o Image.
+Adicione o nome do autor embaixo da foto e estilize a citação com uma borda ou fundo claro para contraste.
+
+import React from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
+
+export default function QuotePanel() {
+  return (
+    <View style={styles.panel}>
+      <Text style={styles.quoteText}>
+        "A única maneira de fazer um excelente trabalho é amar o que você faz."
+      </Text>
+      <Image 
+        source={{ uri: 'https://via.placeholder.com/100' }} 
+        style={styles.authorImage} 
+      />
+      <Text style={styles.authorName}>- Steve Jobs</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  panel: {
+    backgroundColor: '#f9f9f9',
+    borderRadius: 10,
+    padding: 20,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+    margin: 20,
+  },
+  quoteText: {
+    fontSize: 18,
+    fontStyle: 'italic',
+    color: '#333',
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  authorImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 10,
+  },
+  authorName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#555',
+  },
+});
+
+Explicação do Código:
+
+View com estilo panel: Cria um contêiner centralizado com bordas arredondadas, sombra e um layout limpo.
+Text com estilo quoteText: Mostra a citação em fonte itálica e com alinhamento central.
+Image com estilo authorImage: Exibe uma imagem do autor com bordas circulares.
+Text com estilo authorName: Exibe o nome do autor com uma fonte destacada.
+
+Resultado Esperado:
+
+Este código renderiza um painel centralizado com uma citação inspiradora, a foto do autor (circular) e o nome do autor abaixo, tudo estilizado de forma harmoniosa.
